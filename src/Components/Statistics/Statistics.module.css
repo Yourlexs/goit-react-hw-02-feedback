@@ -1,0 +1,13 @@
+.statisticsList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.statisticsElement {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.statisticsElement:last-child {
+  margin-bottom: 10px;
+}
