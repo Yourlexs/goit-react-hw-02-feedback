@@ -17,23 +17,9 @@ class App extends Component {
   };
 
   leaveFeedback = feedback => {
-    if (feedback === 'good') {
-      this.setState(prevState => ({
-        good: prevState.good + 1,
-      }));
-    }
-
-    if (feedback === 'neutral') {
-      this.setState(prevState => ({
-        neutral: prevState.neutral + 1,
-      }));
-    }
-
-    if (feedback === 'bad') {
-      this.setState(prevState => ({
-        bad: prevState.bad + 1,
-      }));
-    }
+    this.setState(prevState => ({
+      [feedback]: prevState[feedback] + 1,
+    }));
   };
 
   countTotalFeedback = () => {
@@ -61,7 +47,7 @@ class App extends Component {
 
     return (
       <>
-        <Section title={'Please leave feedback'}>
+        <Section title="Please leave feedback">
           <FeedbackOptions
             options={['good', 'neutral', 'bad']}
             onLeaveFeedback={this.leaveFeedback}
@@ -70,7 +56,7 @@ class App extends Component {
 
         <Section title={'Statistics'}>
           {!totalFeedback ? (
-            <Notification message={'No feedback given'} />
+            <Notification message="No feedback given" />
           ) : (
             <Statistics
               good={good}
